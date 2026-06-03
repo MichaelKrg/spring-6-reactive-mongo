@@ -30,7 +30,7 @@ public class MongoConfig extends AbstractReactiveMongoConfiguration {
     @Override
     protected void configureClientSettings(MongoClientSettings.Builder builder) {
         builder.credential(MongoCredential.createCredential("root",
-                "admin", "example".toCharArray()))
+                "admin", "mkr_root".toCharArray()))
                 .applyToClusterSettings(settings -> {
                     settings.hosts((singletonList(
                             new ServerAddress("127.0.0.1", 27017)
