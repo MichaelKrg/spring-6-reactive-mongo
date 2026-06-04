@@ -46,6 +46,7 @@ public class BeerHandler {
                 .flatMap(beerDTO -> beerService
                         .patchBeer(request.pathVariable("beerId"),beerDTO))
                 .switchIfEmpty(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND)))
+                //.doOnNext(this::validate)
                 .flatMap(savedDto -> ServerResponse.noContent().build());
     }
 

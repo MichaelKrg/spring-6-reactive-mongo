@@ -35,6 +35,31 @@ class BeerEndpointTest {
     WebTestClient webTestClient;
 
     @Test
+    void testPatchOKEmptyBeerName() {
+        BeerDTO beerDTO = getSavedTestBeer();
+        beerDTO.setBeerStyle("Strong Pale Ale");
+        beerDTO.setBeerName(""); // intentionally empty, should not trigger error in validation
+
+        webTestClient.patch()
+                .uri(BeerRouterConfig.BEER_PATH_ID, beerDTO.getId())
+                .body(Mono.just(beerDTO), BeerDTO.class)
+                .exchange()
+                .expectStatus().isNoContent();
+    }
+
+    @Test
+    void testPatchBadRequest() {
+        BeerDTO beerDTO = getSavedTestBeer();
+        beerDTO.setBeerName("AA"); // intentionally short, should trigger error in validation
+
+        webTestClient.patch()
+                .uri(BeerRouterConfig.BEER_PATH_ID, beerDTO.getId())
+                .body(Mono.just(beerDTO), BeerDTO.class)
+                .exchange()
+                .expectStatus().isBadRequest();
+    }
+
+    @Test
     void testPatchIdNotFound() {
         webTestClient.patch()
                 .uri(BeerRouterConfig.BEER_PATH_ID, 999)
