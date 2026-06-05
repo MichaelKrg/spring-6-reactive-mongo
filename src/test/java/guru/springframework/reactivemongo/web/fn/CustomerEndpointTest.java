@@ -189,5 +189,4 @@ public class CustomerEndpointTest {
                 .exchange().returnResult(CustomerDTO.class).getResponseBody().blockFirst();
     }
     
-
 }

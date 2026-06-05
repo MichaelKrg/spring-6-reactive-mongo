@@ -30,5 +30,4 @@ public class CustomerRouterConfig {
                 .DELETE(CUSTOMER_PATH_ID, accept(APPLICATION_JSON), handler::deleteCustomerById)
                 .build();
     }
-
 }
