@@ -17,6 +17,7 @@
         <java.version>25</java.version>
         <org.mapstruct.version>1.6.3</org.mapstruct.version>
         <org.testcontainers.version>1.19.8</org.testcontainers.version>
+        <logbook.version>4.0.4</logbook.version>
     </properties>
     <dependencies>
         <dependency>
@@ -38,6 +39,25 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.zalando</groupId>
+            <artifactId>logbook-spring-boot-starter</artifactId>
+            <version>${logbook.version}</version>
+        </dependency>
+        <!--dependency>
+            <groupId>org.zalando</groupId>
+            <artifactId>logbook-spring-boot-webflux-autoconfigure</artifactId>
+            <version>${logbook.version}</version>
+        </dependency-->
+        <dependency>
+            <groupId>org.zalando</groupId>
+            <artifactId>logbook-logstash</artifactId>
+            <version>${logbook.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logback</artifactId>
         </dependency>
 
         <dependency>

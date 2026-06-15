@@ -76,6 +76,7 @@ public class CustomerEndpointTest {
     }
 
     @Test
+    @Order(6)
     void testPatchIdFound() {
         CustomerDTO customerDTO = getSavedTestCustomer();
 
@@ -111,7 +112,7 @@ public class CustomerEndpointTest {
     }
 
     @Test
-    @Order(4)
+    @Order(5)
     void testUpdateCustomerBadRequest() {
         CustomerDTO testCustomer = getSavedTestCustomer();
         testCustomer.setCustomerName("");
@@ -136,7 +137,7 @@ public class CustomerEndpointTest {
     }
 
     @Test
-    @Order(3)
+    @Order(4)
     void testUpdateCustomer() {
 
         CustomerDTO customerDTO = getSavedTestCustomer();
@@ -164,6 +165,7 @@ public class CustomerEndpointTest {
     }
 
     @Test
+    @Order(2)
     void testCreateCustomer() {
         CustomerDTO testDto = getSavedTestCustomer();
 
@@ -199,7 +201,7 @@ public class CustomerEndpointTest {
     }
 
     @Test
-    @Order(2)
+    @Order(3)
     void testListCustomers() {
         webTestClient
                 .mutateWith(mockOAuth2Login())
